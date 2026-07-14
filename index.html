@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>织梦与归途：一位长沙纺织女工的59岁微观史</title>
     <style>
-        /* 基础样式重置与变量定义 */
+        /* 色彩体系：典雅人文配色（深黛蓝、古茶棕、宣纸白） */
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #e67e22;
-            --bg-color: #f9f9f6;
+            --primary-color: #1a2a3a;     /* 黛蓝 */
+            --secondary-color: #8c5a3c;   /* 茶棕 */
+            --accent-color: #b85c37;      /* 赭石 */
+            --bg-color: #f7f5f0;          /* 宣纸白 */
             --card-bg: #ffffff;
-            --text-color: #333333;
-            --text-muted: #666666;
-            --border-color: #e0e0e0;
+            --text-main: #2b2b2b;
+            --text-sub: #595959;
+            --border-color: #e2ded4;
+            --quote-bg: #efece6;
         }
 
         * {
@@ -23,405 +25,546 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.8;
-            color: var(--text-color);
+            font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", STSong, Georgia, serif;
+            line-height: 1.85;
+            color: var(--text-main);
             background-color: var(--bg-color);
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* 顶部导航栏 */
+        /* 顶部导航 */
         header {
-            background-color: var(--card-bg);
+            background-color: rgba(255, 255, 255, 0.92);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(8px);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 60px;
+            height: 64px;
         }
 
         .logo {
-            font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 2px;
             color: var(--primary-color);
         }
 
         .nav-links a {
-            margin-left: 20px;
+            margin-left: 24px;
             text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            transition: color 0.3s;
+            color: var(--text-sub);
+            font-size: 0.88rem;
+            letter-spacing: 1px;
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
             color: var(--accent-color);
         }
 
-        /* Hero 区域 */
+        /* Hero 视觉区 */
         .hero {
-            padding: 80px 0 60px;
+            padding: 90px 0 60px;
             text-align: center;
         }
 
-        .hero h1 {
-            font-size: 2.2rem;
+        .hero-title {
+            font-size: 2.3rem;
+            font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
-
-        .hero .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-
-        .tags {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
-
-        .tag {
-            background-color: #f0f0f0;
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: #555;
-        }
-
-        /* 核心金句卡片 */
-        .quote-card {
-            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-            border-left: 5px solid var(--accent-color);
-            padding: 25px 30px;
-            border-radius: 8px;
-            margin-bottom: 60px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
-        }
-
-        .quote-card blockquote {
-            font-size: 1.15rem;
-            font-style: italic;
-            color: #843d0b;
-        }
-
-        /* 章节通用样式 */
-        .section {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            border: 1px solid var(--border-color);
-        }
-
-        .section-header {
-            border-bottom: 2px solid var(--bg-color);
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-        }
-
-        .section-number {
-            font-size: 0.85rem;
-            color: var(--accent-color);
-            font-weight: bold;
-            text-transform: uppercase;
+            line-height: 1.4;
+            margin-bottom: 20px;
             letter-spacing: 1px;
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-top: 5px;
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--secondary-color);
+            margin-bottom: 35px;
+            letter-spacing: 1px;
         }
 
-        .section-keywords {
-            display: inline-block;
-            margin-top: 8px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            background: #f5f5f5;
-            padding: 2px 8px;
-            border-radius: 4px;
+        .meta-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 45px;
         }
 
-        p {
-            margin-bottom: 18px;
-            color: #4a4a4a;
+        .meta-tag {
+            border: 1px solid var(--secondary-color);
+            color: var(--secondary-color);
+            padding: 4px 14px;
+            border-radius: 2px;
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            background-color: rgba(140, 90, 60, 0.03);
         }
 
-        /* 对比/亮眼卡片网格 */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
-        }
-
-        .mini-card {
-            background-color: #fafafa;
-            border: 1px solid #eeeeee;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        .mini-card h4 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
-
-        .mini-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0;
-        }
-
-        .takeaway {
-            background-color: #f8fafc;
-            border-left: 4px solid #3b82f6;
-            padding: 15px 20px;
-            margin-top: 25px;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.95rem;
-        }
-
-        .takeaway strong {
-            color: #1e40af;
-        }
-
-        /* 时间轴部分 */
-        .timeline {
+        /* 引言模块 */
+        .featured-quote {
+            background-color: var(--quote-bg);
+            border-left: 3px solid var(--secondary-color);
+            padding: 30px 35px;
+            margin-bottom: 60px;
+            text-align: left;
             position: relative;
-            padding: 20px 0;
-            margin-top: 20px;
         }
 
-        .timeline::before {
+        .featured-quote blockquote {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .featured-quote .quote-author {
+            margin-top: 15px;
+            font-size: 0.88rem;
+            color: var(--secondary-color);
+            text-align: right;
+            font-style: normal;
+        }
+
+        /* 模块化章节设计 */
+        .section-block {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 48px;
+            margin-bottom: 48px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 18px;
+        }
+
+        .section-tag {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-top: 6px;
+            font-weight: 700;
+        }
+
+        .section-meta {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-top: 8px;
+        }
+
+        .content-paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+            color: var(--text-main);
+            font-size: 0.98rem;
+        }
+
+        /* 口述原话模块 */
+        .oral-quote {
+            background-color: #fcfbf9;
+            border: 1px dashed var(--secondary-color);
+            padding: 20px 24px;
+            margin: 25px 0;
+            font-size: 0.93rem;
+            color: #4a3b32;
+            line-height: 1.8;
+        }
+
+        .oral-quote-title {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* 结构化网格卡片 */
+        .grid-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 30px 0;
+        }
+
+        .data-card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+        }
+
+        .data-card-title {
+            font-size: 1.05rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .data-card-text {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            line-height: 1.7;
+        }
+
+        /* 观察者结语模块 */
+        .observation-box {
+            background-color: rgba(26, 42, 58, 0.03);
+            border-top: 2px solid var(--primary-color);
+            padding: 20px 24px;
+            margin-top: 30px;
+        }
+
+        .observation-title {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .observation-content {
+            font-size: 0.92rem;
+            color: var(--text-sub);
+        }
+
+        /* 时间轴模块 */
+        .timeline-container {
+            position: relative;
+            padding: 20px 0 20px 20px;
+        }
+
+        .timeline-container::before {
             content: '';
             position: absolute;
-            left: 18px;
+            left: 7px;
             top: 0;
             bottom: 0;
-            width: 2px;
-            background: var(--border-color);
+            width: 1px;
+            background-color: var(--secondary-color);
         }
 
-        .timeline-item {
+        .timeline-node {
             position: relative;
-            padding-left: 50px;
-            margin-bottom: 30px;
+            padding-left: 32px;
+            margin-bottom: 36px;
         }
 
         .timeline-dot {
             position: absolute;
-            left: 10px;
-            top: 5px;
-            width: 18px;
-            height: 18px;
+            left: -17px;
+            top: 8px;
+            width: 9px;
+            height: 9px;
+            background-color: var(--bg-color);
+            border: 2px solid var(--secondary-color);
             border-radius: 50%;
-            background: var(--accent-color);
-            border: 3px solid #fff;
-            box-shadow: 0 0 0 2px var(--border-color);
         }
 
-        .timeline-date {
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        /* 页脚 */
-        footer {
-            background-color: #1e293b;
-            color: #f1f5f9;
-            padding: 50px 0 30px;
-            margin-top: 60px;
-        }
-
-        footer h3 {
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        footer p {
-            color: #94a3b8;
+        .timeline-year {
             font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+            margin-bottom: 6px;
         }
 
-        .footer-bottom {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #334155;
+        .timeline-text {
+            font-size: 0.93rem;
+            color: var(--text-sub);
+        }
+
+        /* 页脚区域 */
+        footer {
+            background-color: var(--primary-color);
+            color: #d5d8dc;
+            padding: 60px 0 40px;
+            margin-top: 80px;
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .footer-desc {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #a3b0c0;
+            margin-bottom: 30px;
+        }
+
+        .footer-copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
             text-align: center;
-            font-size: 0.8rem;
-            color: #64748b;
+            font-size: 0.82rem;
+            color: #7a8b9e;
+            letter-spacing: 1px;
         }
 
-        /* 移动设备适配 */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 1.7rem; }
-            .section { padding: 25px 20px; }
+        @media (max-width: 768px) {
+            .grid-two-col { grid-template-columns: 1fr; }
+            .section-block { padding: 28px 20px; }
+            .hero-title { font-size: 1.75rem; }
             nav .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 顶部导航栏 -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo">织梦与归途</div>
                 <div class="nav-links">
-                    <a href="#ch1">纺织厂</a>
-                    <a href="#ch2">职业教育</a>
-                    <a href="#ch3">城归养老</a>
-                    <a href="#ch4">情感寄托</a>
-                    <a href="#timeline">人生脉络</a>
+                    <a href="#ch1">时代转折</a>
+                    <a href="#ch2">教育策略</a>
+                    <a href="#ch3">城归图景</a>
+                    <a href="#ch4">代际伦理</a>
+                    <a href="#timeline">微观年表</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <main class="container">
-        <!-- Hero 视觉区 -->
+        <!-- Hero 区域 -->
         <section class="hero">
-            <h1>从纺织厂到乡村庭院：<br>59岁阿姨的时代变迁与生活哲学</h1>
-            <p class="subtitle">一个关于下岗转型、实用主义教育、城老归乡与代际包容的真实故事</p>
-            
-            <div class="tags">
-                <span class="tag">原长沙国企纺织女工</span>
-                <span class="tag">2002下岗潮经历者</span>
-                <span class="tag">职高逆袭家长</span>
-                <span class="tag">城归养老族</span>
-                <span class="tag">三条狗的“寄养妈妈”</span>
+            <h1 class="hero-title">从国企纺织机到白箬铺庭院：<br>一位59岁长沙女性的时代变迁与生活哲学</h1>
+            <p class="subtitle">—— 结合口述史与田野观察的微观个体叙事</p>
+
+            <div class="meta-tags">
+                <span class="meta-tag">原长沙国企纺织女工</span>
+                <span class="meta-tag">2002年体制改制经历者</span>
+                <span class="meta-tag">公办职高对口升学实践者</span>
+                <span class="meta-tag">城郊逆向流动养老族</span>
+                <span class="meta-tag">三只宠物狗的托管人</span>
             </div>
 
-            <div class="quote-card">
-                <blockquote>“生活就像织布，线断了就接上；孩子们有自己的路，狗有狗的快活，我有我的麻将和短剧。”</blockquote>
+            <div class="featured-quote">
+                <blockquote>
+                    “生活就像纺织机上的棉线，断了就打个结重新接上，机子总归是要转的。孩子们有他们自己的路要走，狗有狗的快活，我也有我自己的麻将和短剧，大家都舒坦，这就是最好的日子。”
+                </blockquote>
+                <div class="quote-author">—— 口述人记录（访谈于长沙白箬铺镇）</div>
             </div>
         </section>
 
         <!-- 第一章 -->
-        <section id="ch1" class="section">
+        <section id="ch1" class="section-block">
             <div class="section-header">
-                <div class="section-number">CHAPTER 01</div>
-                <h2 class="section-title">时代纺织机 —— 铁饭碗破灭与自我重塑</h2>
-                <div class="section-keywords">关键词：国企纺织厂 / 2002年下岗潮 / 个人韧性</div>
+                <span class="section-tag">CHAPTER 01</span>
+                <h2 class="section-title">时代的轰鸣与断线：体制安全感消逝后的个人韧性</h2>
+                <div class="section-meta">关键词：国企纺织厂 / 改制转型 / 市场化再就业 / 生存智慧</div>
             </div>
-            <p>青年时代，她是长沙国企纺织厂的一名女工。纺织机轰鸣的厂房里，记载着那个年代体制内安稳而有秩序的青春记忆。</p>
-            <p>2002年前后，面对国企改制与下岗潮，曾经被视为终身保障的“铁饭碗”戛然而止。时代的一粒灰落在个人头上，她没有陷于停滞与怨怼，而是快速适应市场，走入都市打工流转的潮流中。</p>
-            <div class="takeaway">
-                <strong>💡 微观观察：</strong> 这一段经历赋予了她极其强韧的生存智慧与抗风险能力——不盲从、不绝望，脚踏实地应对生活的每一次改道。
+
+            <p class="content-paragraph">
+                青年时代，她是长沙国企纺织厂里的骨干女工。在那个工业文明尚具光彩的年代，纺织车间里轰鸣的机器声不仅代表着秩序与稳定，更意味着一套完整的福利保障与身份认同。从厂区宿舍、职工食堂到医疗报销，体制构筑了一座坚固的避风港。
+            </p>
+
+            <div class="oral-quote">
+                <div class="oral-quote-title">口述实录·关于下岗记忆</div>
+                “2002年前后改制，厂里通知停产的时候，大家心里都没底。那是真的‘铁饭碗’破了。但哭没有用，家里孩子还要读书，房子还要开销。下岗后我就跟着姐妹们去市场找活做，打零工、做餐饮，什么活能挣钱就做什么。机器停了，人不能停。”
+            </div>
+
+            <p class="content-paragraph">
+                时代的大潮转向时，个体往往首当其冲。面对体制保障的消解，她没有沉溺于过去的光荣与抱怨，而是迅速将国企培养出的纪律性与耐力转化为步入市场化就业的本领。这种在剧烈社会转型期锻造出的抗风险智慧，成为她日后处理家庭重大决策时的底层逻辑。
+            </p>
+
+            <div class="observation-box">
+                <div class="observation-title">社会学观察视角</div>
+                <div class="observation-content">
+                    作为第一代国企工业女工，她的个人生命史深刻契合了中国近四十年的经济转型轨迹。其展现出的极强适应力，反映了中国基层女性在面对体制解构时特有的“水样韧性”——不与风浪硬抗，但随环境变化灵活调整生存策略。
+                </div>
             </div>
         </section>
 
         <!-- 第二章 -->
-        <section id="ch2" class="section">
+        <section id="ch2" class="section-block">
             <div class="section-header">
-                <div class="section-number">CHAPTER 02</div>
-                <h2 class="section-title">实用主义的破局 —— 职业教育的乡村“逆袭”</h2>
-                <div class="section-keywords">关键词：长沙财经学校 / 对口升学 / 避险策略 / 非精英路径</div>
+                <span class="section-tag">CHAPTER 02</span>
+                <h2 class="section-title">实用主义的破局：避开普高拥挤赛道的“非精英路径”</h2>
+                <div class="section-keywords">关键词：长沙财经学校 / 对口高考 / 会计师证书 / 阶层流动</div>
             </div>
-            <p>在“考不上普高人生就毁了”的普遍社会焦虑中，阿姨展现出了超前的务实智慧。她没有盲目去卷精英普高，而是为孩子们选择了最适合的“实用主义路线”。</p>
-            
-            <div class="card-grid">
-                <div class="mini-card">
-                    <h4>👨‍💼 儿子：职高逆袭路线</h4>
-                    <p>考入公办职高名校（长沙财经学校），通过对口高考考取湖南商学院，拿下会计师证，成长为大型企业财务主管。</p>
+
+            <p class="content-paragraph">
+                在“考不上普高人生就毁了”的社会焦虑蔓延至县域与城乡结合部时，阿姨在子女的教育选择上展现出了罕见的理性与务实。她深知普通家庭在资源与信息上的局限，因此拒绝盲目参与普高独木桥的内卷，转而寻找高性价比的突破口。
+            </p>
+
+            <div class="grid-two-col">
+                <div class="data-card">
+                    <div class="data-card-title">长子的“职高升学”轨迹</div>
+                    <div class="data-card-text">
+                        初中毕业后未强求普通高中，而是考入公办名校<b>长沙财经学校</b>。通过对口升学高考，顺利考入<b>湖南商学院（现湖南工商大学）</b>，在校期间拿下会计师资格证，毕业后逐步成长为大型企业的财务主管，成功实现城乡阶层跨越。
+                    </div>
                 </div>
-                <div class="mini-card">
-                    <h4>👩‍💼 女儿：务实技能规划</h4>
-                    <p>延续兄长的成功思路，选择酒店管理专业，稳扎稳打准备对口高考，走技能提升的稳健通道。</p>
+                <div class="data-card">
+                    <div class="data-card-title">长女的“技能避险”路径</div>
+                    <div class="data-card-text">
+                        借鉴长子的成功经验，女儿初中毕业后选择酒店管理专业，主攻刚需实用技能。目前正稳扎稳打准备对口高考，避开了普通高中的无休止刷题与考研内卷，方向明确且就业前景稳定。
+                    </div>
                 </div>
             </div>
 
-            <div class="takeaway">
-                <strong>💡 微观观察：</strong> 在县域与城乡结合部，职业教育并非“降维打击”或无奈退让，而是一条被成功验证的、高性价比的阶层向上流动通道。
+            <div class="oral-quote">
+                <div class="oral-quote-title">口述实录·关于教育理念</div>
+                “别人都讲一定要读普高、考名牌大学，但我算过账：普通高中拼死拼活考个普通二本三本，出来找工作未必有技术。长沙财经学校是公办名校，风气好，老师管得严。儿子选会计，女儿选酒管，学一门手艺，再通过对口高考拿本科学历，这步棋走对了。”
+            </div>
+
+            <div class="observation-box">
+                <div class="observation-title">社会学观察视角</div>
+                <div class="observation-content">
+                    在县域与乡村教育生态中，“优质公办职高 + 对口高考”提供了一种非精英式的向上流动范式。阿姨的实用主义策略表明，避开虚高的高考内卷、选择刚需专业与清晰的职业路径，是普通阶层防范阶层下滑并实现稳健跨越的有效生存法则。
+                </div>
             </div>
         </section>
 
         <!-- 第三章 -->
-        <section id="ch3" class="section">
+        <section id="ch3" class="section-block">
             <div class="section-header">
-                <div class="section-number">CHAPTER 03</div>
-                <h2 class="section-title">城老归乡 —— 乡村里的“新养老”图景</h2>
-                <div class="section-keywords">关键词：白箬铺镇 / 逆向流动 / 麻将与AI短剧</div>
+                <span class="section-tag">CHAPTER 03</span>
+                <h2 class="section-title">城老归乡：郊区自建房里的数字化“新养老”</h2>
+                <div class="section-keywords">关键词：白箬铺镇 / 城归族 / 红果短剧 / 数字生活</div>
             </div>
-            <p>退休后，她没有选择拥挤的都市，而是回到丈夫老家——长沙郊区的白箬铺镇，落户在自建的乡村庭院里。</p>
-            <p>她的日常既有传统乡村的走村串户与麻将闲暇，又有高度数字化的现代消费：熟练使用智能手机，追红果短剧、河马剧场，沉浸在AI短剧的精彩剧情中，享受城郊乡村特有的生态与安静。</p>
-            <div class="takeaway">
-                <strong>💡 微观观察：</strong> 她代表了新一代“城归族”——带着城市的商业/工业经验回乡，在乡村享受低成本、高品质、数字化的现代养老生活。
+
+            <p class="content-paragraph">
+                退休之后，她没有选择留在高楼林立、生活成本高昂的长沙城区，而是与丈夫回到郊区的白箬铺镇。他们在祖宅的基础上盖起了带有庭院的自建房，完成了从“乡村到城市”再到“城市回乡村”的逆向流动。
+            </p>
+
+            <p class="content-paragraph">
+                她的乡村养老生活摆脱了传统留守老人的孤寂与封闭，呈现出一种高度现代化的松弛感。日常生活中，她既保有乡土社会的熟人社交（如村口麻将馆的闲谈与打牌），又能极其熟练地使用智能手机，沉浸在红果短剧、河马剧场等AI生成的短剧世界里。
+            </p>
+
+            <div class="oral-quote">
+                <div class="oral-quote-title">口述实录·关于乡村养老</div>
+                “城里的套房住着闷人，门一关谁也不认识谁。回白箬铺多好，小院子宽敞，空气新鲜。下午去村里打打麻将，晚上坐在院子里用手机追短剧，那些八十集、上百集的短剧剧情快，看着过瘾。城里孩子周末开车回来也方便，这日子比住在城里快活多了。”
+            </div>
+
+            <div class="observation-box">
+                <div class="observation-title">社会学观察视角</div>
+                <div class="observation-content">
+                    作为带着工业经验与都市生活习惯重返乡村的“新城归族”，她代表了中国城乡融合中的新型养老模式。低廉的生活成本、优质的自然环境与数字技术的无缝渗透，共同构筑了中国新型乡村老人的生活图景。
+                </div>
             </div>
         </section>
 
         <!-- 第四章 -->
-        <section id="ch4" class="section">
+        <section id="ch4" class="section-block">
             <div class="section-header">
-                <div class="section-number">CHAPTER 04</div>
-                <h2 class="section-title">三条狗与现代代际观 —— 爱的寄托与包容</h2>
-                <div class="section-keywords">关键词：金仔/淡淡/奥利奥 / 代际寄托 / 尊重丁克</div>
+                <span class="section-tag">CHAPTER 04</span>
+                <h2 class="section-title">三只宠物狗与代际包容：传统乡土与现代伦理的融合</h2>
+                <div class="section-keywords">关键词：金仔与淡淡与奥利奥 / 情感寄托 / 丁克包容 / 代际边界</div>
             </div>
-            <p>庭院里热闹非凡，养着“金仔”、“淡淡”和“奥利奥”三条狗。它们不仅是看家护院的伙伴，更是城里上班的儿女寄养在老家的流浪狗与宠物狗。狗成了城乡之间、两代人情感连接的具象纽带。</p>
-            <p>面对儿女“丁克（DINK）”的选择，虽然口头上戏称是“心病”，但在行动上她没有强加干涉，而是坦然接受并给予充分的自由与空间。</p>
-            <div class="takeaway">
-                <strong>💡 微观观察：</strong> 从过去村里“看家/食肉”的实用动物，到如今的情感陪伴；从传统的“传宗接代”，到现代的“个体尊重”，她在乡土伦理与都市现代性之间找到了一种极具温情的平衡点。
+
+            <p class="content-paragraph">
+                白箬铺镇的庭院里热闹非凡，生活着三只名字响亮的狗——“金仔”、“淡淡”和“奥利奥”。在传统的乡村视角里，狗只是看家护院或食用工具；但在这个庭院里，它们却是儿女寄养在老家的流浪狗与宠物狗，成为了连接城里打拼的儿女与乡下老人的重要情感纽带。
+            </p>
+
+            <div class="grid-two-col">
+                <div class="data-card">
+                    <div class="data-card-title">情感寄托：三只狗的寄养生活</div>
+                    <div class="data-card-text">
+                        城里狭窄的住房空间不适合养大型犬，儿女便将救助的流浪狗与宠物狗带回白箬铺托管。阿姨每天准时喂饭、遛狗，狗在乡村草坪上撒欢，也充实了老人的日常空闲。
+                    </div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-title">代际边界：面对“丁克”的坦然</div>
+                    <div class="data-card-text">
+                        面对年轻一代选择不婚或“丁克（DINK）”的现代观念，她虽然偶有抱怨，但从未强加干涉。她选择尊重孩子的选择，用看顾宠物狗的方式给予代际间最温和的陪伴。
+                    </div>
+                </div>
+            </div>
+
+            <div class="oral-quote">
+                <div class="oral-quote-title">口述实录·关于代际与宠物</div>
+                “金仔和淡淡是城里救回来的流浪狗，奥利奥是宠物狗。城里房子小，孩子们上班忙，就全放到我这里养。有时候讲起他们不催生、想‘丁克’，我心里也过不去，但想想年轻人压力大，逼他们干什么呢？他们周末回来看看狗，看看我们，一家人和和气气，比什么都强。”
+            </div>
+
+            <div class="observation-box">
+                <div class="observation-title">社会学观察视角</div>
+                <div class="observation-content">
+                    在传统乡土伦理向现代都市伦理过渡的过程中，阿姨展现出了极高的代际智慧。她没有将传宗接代作为衡量子女成功的唯一标准，而是以极大的包容度接纳了现代多元价值观，在情感寄托与个体自由之间找到了最舒适的平衡点。
+                </div>
             </div>
         </section>
 
-        <!-- 时间轴 -->
-        <section id="timeline" class="section">
+        <!-- 人生微观年表 -->
+        <section id="timeline" class="section-block">
             <div class="section-header">
-                <div class="section-number">TIMELINE</div>
-                <h2 class="section-title">人生轨迹时间轴</h2>
+                <span class="section-tag">CHRONOLOGY</span>
+                <h2 class="section-title">生命历程微观年表</h2>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
+
+            <div class="timeline-container">
+                <div class="timeline-node">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">1980s - 1990s</div>
-                    <p>入职长沙国企纺织厂，成为一名一线纺织女工，体验体制内秩序与时代红利。</p>
+                    <div class="timeline-year">1980年代 — 1990年代末</div>
+                    <div class="timeline-text">
+                        入职长沙国企纺织厂，成为一线生产骨干。在体制内建立起严谨的工作习惯与对秩序的信任，度过了安稳的青年时代。
+                    </div>
                 </div>
-                <div class="timeline-item">
+
+                <div class="timeline-node">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2002年前后</div>
-                    <p>遭遇国企改制与下岗潮，离开体制，步入市场进行再就业与自我重塑。</p>
+                    <div class="timeline-year">2002年前后</div>
+                    <p class="timeline-text">
+                        遭遇国企改制与下岗潮，离厂转型。快速调整心态进入市场，从事餐饮、零售等零工再就业，展现出强烈的个体抗风险韧性。
+                    </p>
                 </div>
-                <div class="timeline-item">
+
+                <div class="timeline-node">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2010s</div>
-                    <p>制定务实教育策略，支持子女选择优质公办职高（长沙财经学校），成功实现阶层流动。</p>
+                    <div class="timeline-year">2010年代</div>
+                    <p class="timeline-text">
+                        主导子女教育决策，避开普高升学焦虑，支持长子进入公办名校长沙财经学校。长子后考入湖南商学院，顺利成为企业财务主管。
+                    </p>
                 </div>
-                <div class="timeline-item">
+
+                <div class="timeline-node">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2020s</div>
-                    <p>退休归乡白箬铺镇，开启“麻将+短剧+寄养宠物”的现代化城归养老生活。</p>
+                    <div class="timeline-year">2020年代</div>
+                    <p class="timeline-text">
+                        退休后归乡，落户白箬铺镇自建房。形成“村口麻将 + 手机追AI短剧 + 托管三只宠物狗”的现代化城归养老模式。
+                    </p>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- 页脚与研究说明 -->
     <footer>
         <div class="container">
-            <h3>关于本研究记录 / About The Research</h3>
-            <p>在宏大的城乡变迁与教育转型叙事中，我们往往容易忽视具体个人的选择。59岁的阿姨，既是中国第一代工业女工的缩影，也是县域实用主义教育的实践者，更是城乡融合背景下新养老生活的探索者。通过她的微观故事，我们希望能为中国县域教育出路、城乡流动与代际关系提供一份充满温情与活力的田野样本。</p>
-            <div class="footer-bottom">
-                <p>© 2026 乡村与县域教育课题走访团队 | 微观人物口述史项目</p>
+            <h3 class="footer-title">研究结语与学术立意 / Research Conclusion</h3>
+            <p class="footer-desc">
+                在宏大的社会学研究与教育转型叙事中，具体个人的微观抉择往往被抽象的数据所淹没。59岁的她，既是中国第一代工业女工的缩影，也是县域实用主义教育的成功实践者，更是城乡融合背景下新养老图景的探索者。通过对她生命历程的梳理，我们希望能为中国县域教育出路、城乡逆向流动以及代际关系演变提供一份充满温情与活力的田野样本。
+            </p>
+            <div class="footer-copyright">
+                © 2026 县域教育与乡村社会变迁课题组 | 人物口述史档案
             </div>
         </div>
     </footer>
